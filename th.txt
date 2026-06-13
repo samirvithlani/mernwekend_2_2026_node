@@ -1,3 +1,12 @@
+
+backend : d:projects ->mern->backend -->ctlr+ l  -->type cmd
+
+npm init --y
+code .
+
+
+
+
 express:
 api creation:
 
