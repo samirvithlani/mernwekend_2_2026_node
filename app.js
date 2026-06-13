@@ -1,16 +1,11 @@
-console.log("Hello");
-console.log("app file loaded")
-const empSal = require("./employee")
-const users = require("./users")
-const students = require("./students")
+//#module use import || require
+const express = require("express") //whole express module..
+//create an object or ref variable of express module
+const app = express() // app is ref variable.. 
 
-console.log("employee salary =",empSal)
-console.log(users)
-console.log(users.userName)
-console.log(users.usercity)
-console.log(students)
-//function call...
-students.addStudent(17,"12th") //function..
-const studentinfo = students.printStudent()
-console.log(studentinfo)
 
+//create web server..
+const PORT = 3000
+app.listen(PORT,()=>{
+    console.log(`server started on port ${PORT}`)
+})

@@ -1,0 +1,38 @@
+express:
+api creation:
+
+Application prog interface:
+
+2 tech comm:api:
+
+GET,POST,PUT,DELETE,PATCH
+
+GET: fetch data from db -->send to frontend..
+POST : frontend data fetch  -->db store..
+PUT : update
+DELEET: delete:
+patch :partial update...
+
+web application :
+web server: tomcat
+  -->user request ---> handle response:
+  embeded server:
+  no third party server
+
+  nodejs: http server
+  express: express server --> internally http server use
+  request -->handle[][][][][] -->response..
+server:4
+
+npm i express
+
+
+dev tools:
+nodemon
+npm i nodemon -g
+-g global --> system level install
+no entry in package.json file
+
+node app.js
+
+nodemon app.js
