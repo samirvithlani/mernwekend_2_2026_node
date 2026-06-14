@@ -44,44 +44,73 @@ app.get("/user", (req, res) => {
   });
 });
 
-app.get("/users",(req,res)=>{
-    res.json({
-        message:"user fetch successfully !!",
-        data:users
-    })
-})
+app.get("/users", (req, res) => {
+  res.json({
+    message: "user fetch successfully !!",
+    data: users,
+  });
+});
 
-app.get("/users1",(req,res)=>{
+app.get("/users1", (req, res) => {
+  res.write(JSON.stringify(user));
+  res.send();
+});
 
-  res.write(JSON.stringify(user))
-  res.send()
-})
+app.get("/users2", (req, res) => {
+  res.set("content-type", "text/html");
+  res.write(`<h1>Hello</h1>`);
+  res.send();
+});
 
-app.get("/users2",(req,res)=>{
-  res.set("content-type","text/html")
-  res.write(`<h1>Hello</h1>`)
-  res.send()
-})
-
-
-app.get("/usertable",(req,res)=>{
-
-  res.set("content-type","text/html")
+app.get("/usertable", (req, res) => {
+  res.set("content-type", "text/html");
   res.write(`<center><table cellspacing='5px' cellpadding='10px' border='1px' solid>
     <tr>
     <th>ID</th>
     <th>NAME</th>
     <th>AGE</th>
-    </tr>`)
-    for(i of users){
-      res.write(`<tr><td>${i.id}</td>`)
-      res.write(`<td>${i.name}</td>`)
-      res.write(`<td>${i.age}</td></tr>`)
-    }
-    res.write(`</table></center>`)
-    res.send()
+    </tr>`);
+  for (i of users) {
+    res.write(`<tr><td>${i.id}</td>`);
+    res.write(`<td>${i.name}</td>`);
+    res.write(`<td>${i.age}</td></tr>`);
+  }
+  res.write(`</table></center>`);
+  res.send();
+});
 
-})
+//url data  -->2 options -->req.params /:id
+//req.query  ?name=""
+
+//localhost:3000/getuserbyid/1
+app.get("/getuserbyid/:id", (req, res) => {
+  //:id -->req.params object
+  //params data -->type->text
+  console.log("params", req.params);
+  console.log(req.params.id);
+
+  //users =[] ==id -->{} -->array for loop every iter id match -->if -->object variable store send
+  var foundUser = users.find((user) => user.id == req.params.id);
+  console.log("found object", foundUser);
+
+  if (foundUser) {
+    res.json({
+      message: "user found",
+      data: foundUser,
+    });
+  }
+  else{
+    res.json({
+      message: "user not found",
+      
+    });
+  }
+
+  // res.json({
+  //   message:"user found",
+  //   data:foundUser
+  // })
+});
 
 //create web server..
 const PORT = 3000;
