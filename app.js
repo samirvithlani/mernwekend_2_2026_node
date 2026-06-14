@@ -147,6 +147,45 @@ var students =[
 ]
 //get api -->params marks --> 85 > marks all student array return 
 
+app.get("/studentsbymarks/:marks",(req,res)=>{
+
+    const marks = req.params.marks; //84
+    const foundStudents = students.filter((stu)=>stu.marks>=marks) //[]
+    if(foundStudents.length){
+      res.json({
+        message:`students found  marsk greater ${marks}`,
+        data:foundStudents
+      })
+    }
+    else{
+      res.json({
+        message:`students not found greater   marsk ${marks}`,
+        data:foundStudents
+      })
+    }
+
+})
+
+//params
+///:collagename /:student name
+//ravi from gls
+
+//localhost:3000/studenfromcollage/ravi/gls
+
+//req.query -->search 
+//http://localhost:3000/searchstudent?name=amit
+//first param after ?
+//http://localhost:3000/searchstudent?name=amit&age=23&city=ahm&are=navrangpura
+app.get("/searchstudent",(req,res)=>{
+
+    console.log("query",req.query)
+    res.json({
+      message:"search student by query"
+    })
+})
+
+
+
 //create web server..
 const PORT = 3000;
 app.listen(PORT, () => {
