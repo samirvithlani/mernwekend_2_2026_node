@@ -112,6 +112,41 @@ app.get("/getuserbyid/:id", (req, res) => {
   // })
 });
 
+
+var students =[
+  {
+    "id": 101,
+    "name": "Amit Sharma",
+    "college": "ABC College",
+    "marks": 85
+  },
+  {
+    "id": 102,
+    "name": "Rahul Patel",
+    "college": "XYZ College",
+    "marks": 78
+  },
+  {
+    "id": 103,
+    "name": "Neha Shah",
+    "college": "PQR College",
+    "marks": 92
+  },
+  {
+    "id": 104,
+    "name": "Pooja Verma",
+    "college": "LMN College",
+    "marks": 88
+  },
+  {
+    "id": 105,
+    "name": "Karan Mehta",
+    "college": "DEF College",
+    "marks": 81
+  }
+]
+//get api -->params marks --> 85 > marks all student array return 
+
 //create web server..
 const PORT = 3000;
 app.listen(PORT, () => {
