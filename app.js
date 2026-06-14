@@ -24,14 +24,14 @@ const users = [
     age: 23,
   },
   {
-    id: 1,
-    name: "amit",
-    age: 23,
+    id: 2,
+    name: "amita",
+    age: 24,
   },
   {
-    id: 1,
-    name: "amit",
-    age: 23,
+    id: 3,
+    name: "jay",
+    age: 25,
   },
 ];
 
@@ -49,6 +49,38 @@ app.get("/users",(req,res)=>{
         message:"user fetch successfully !!",
         data:users
     })
+})
+
+app.get("/users1",(req,res)=>{
+
+  res.write(JSON.stringify(user))
+  res.send()
+})
+
+app.get("/users2",(req,res)=>{
+  res.set("content-type","text/html")
+  res.write(`<h1>Hello</h1>`)
+  res.send()
+})
+
+
+app.get("/usertable",(req,res)=>{
+
+  res.set("content-type","text/html")
+  res.write(`<center><table cellspacing='5px' cellpadding='10px' border='1px' solid>
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>AGE</th>
+    </tr>`)
+    for(i of users){
+      res.write(`<tr><td>${i.id}</td>`)
+      res.write(`<td>${i.name}</td>`)
+      res.write(`<td>${i.age}</td></tr>`)
+    }
+    res.write(`</table></center>`)
+    res.send()
+
 })
 
 //create web server..
