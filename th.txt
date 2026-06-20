@@ -237,3 +237,12 @@ packages: mongodb,mongoose
 
 npm i mongoose
 
+
+APP.js --> routes -->controller
+
+user module
+
+userController
+userRoutes
+
+userModels*

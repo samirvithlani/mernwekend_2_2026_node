@@ -5,7 +5,10 @@ const app = express(); // app is ref variable..
 const dbConnection = require("./src/utils/DBConnection")
 dbConnection() //call
 
-
+//routes require
+//localhost:3000/users
+const userRoutes = require("./src/routes/UserRoutes")
+app.use(userRoutes)
 
 
 //create web server..
