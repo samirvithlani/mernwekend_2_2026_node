@@ -3,4 +3,5 @@ const userController = require("../controllers/UserController")
 //router.get("/users",(req,res)=>{}) <<-- (req,res) -->controller
 router.get("/users",userController.getUsers)
 router.get("/user/:id",userController.getUserById)
+router.get("/userbyname",userController.searchUserByName)
 module.exports = router

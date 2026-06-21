@@ -1,5 +1,6 @@
 //functions
 const userSchema = require("../models/UserModel");
+const mongoose = require("mongoose")
 //userScham == db.users
 const getUsers = async (req, res) => {
   //db-->
@@ -13,9 +14,8 @@ const getUserById = async (req, res) => {
   //id -->params.
   const id = req.params.id;
   console.log(id);
-  //const foundUser = await userSchema.find({_id:ObjectId("")}) // [{}]
-
-  const foundUser = await userSchema.findById(id); //{}
+  //const foundUser = await userSchema.find({_id:new mongoose.Types.ObjectId(id)}) // [{}]
+    const foundUser = await userSchema.findById(id); //{}
   if (foundUser) {
     res.json({
       message: "user found",
@@ -29,7 +29,21 @@ const getUserById = async (req, res) => {
   }
 };
 
+const searchUserByName = async(req,res)=>{
+
+    //req.query
+    const name = req.query.name;
+    //console.log(name)
+    const foundUsers = await userSchema.find({name:name}) //[]-->blank
+    res.json({
+        message:`user found with name ${name}`,
+        data:foundUsers
+    })
+
+}
+
 module.exports = {
   getUsers,
   getUserById,
+  searchUserByName
 };
