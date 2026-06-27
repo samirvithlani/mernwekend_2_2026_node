@@ -3,6 +3,20 @@ const Schema = mongoose.Schema //class
 
 const userSchema = new Schema({
     //fileds..
+    //name:String,
+    
+    name:{
+        type:String
+    },
+    age:{
+        type:Number
+    },
+    email:{
+        type:String,
+    },
+    password:{
+        type:String
+    }
 })
 
 //users ->collection[table]-->db.js -->

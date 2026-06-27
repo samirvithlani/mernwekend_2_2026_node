@@ -42,8 +42,31 @@ const searchUserByName = async(req,res)=>{
 
 }
 
+//req.params :id
+//req.query ???
+//POST -{object} ---> req.body
+const addUser = async(req,res)=>{
+  //db.users.insertOne({})
+  //db.users == userSchema
+  //userSchema.insertOne({name:"amir",,,,})
+  //userSchema.insertOne(req.body)
+  //insertOne -->replacement -->create()
+  //{}req.body { name: 'amit', age: 23, email: 'amit@gmail.com', password: 'amit123' }
+  const savedUser = await userSchema.create(req.body)
+
+  console.log("req.body",req.body)
+  res.json({
+    message:"user adde",
+    data:savedUser
+  })
+
+}
+
+
+
 module.exports = {
   getUsers,
   getUserById,
-  searchUserByName
+  searchUserByName,
+  addUser
 };

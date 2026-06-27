@@ -4,6 +4,7 @@ const express = require("express"); //whole express module..
 const app = express(); // app is ref variable..
 const dbConnection = require("./src/utils/DBConnection")
 dbConnection() //call
+app.use(express.json()) //applying global middleware to accept json data in req.body..
 
 //routes require
 //localhost:3000/users

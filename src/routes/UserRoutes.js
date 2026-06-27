@@ -4,4 +4,7 @@ const userController = require("../controllers/UserController")
 router.get("/users",userController.getUsers)
 router.get("/user/:id",userController.getUserById)
 router.get("/userbyname",userController.searchUserByName)
+
+//localhost:3000/user
+router.post("/user",userController.addUser)
 module.exports = router
