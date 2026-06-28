@@ -7,4 +7,5 @@ router.get("/userbyname",userController.searchUserByName)
 
 //localhost:3000/user
 router.post("/user",userController.addUser)
+router.delete("/user/:id",userController.deleteUser)
 module.exports = router

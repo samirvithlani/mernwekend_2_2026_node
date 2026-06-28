@@ -16,7 +16,14 @@ const userSchema = new Schema({
     },
     password:{
         type:String
-    }
+    },
+    bloodGroup:{
+        type:String,
+        enum:["A+","A-","B+","B-","O+","O-"]
+    },
+    hobbies:[{
+        type:String,
+    }]
 })
 
 //users ->collection[table]-->db.js -->
