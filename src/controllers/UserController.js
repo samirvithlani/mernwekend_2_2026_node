@@ -57,51 +57,68 @@ const addUser = async (req, res) => {
       message: "user adde",
       data: savedUser,
     });
-
   } catch (err) {
     res.status(500).json({
-      err:err
+      err: err,
     });
   }
 };
 
-
-const deleteUser = async(req,res)=>{
+const deleteUser = async (req, res) => {
   //db.users.removeOne({_id:"lahsaljsaipsajsa"})
   //id req.params
   //userSchema.removeOne({_id:Objectid(req.params.id)})
 
   const id = req.params.id;
-  try{
-
+  try {
     //const deletedUser = await userSchema.deleteOne({name:"amtit"})
-    const deletedUser = await userSchema.findByIdAndDelete(id)
-    console.log('deleted user..',deletedUser)
-    if(deletedUser){
+    const deletedUser = await userSchema.findByIdAndDelete(id);
+    console.log("deleted user..", deletedUser);
+    if (deletedUser) {
       res.status(200).json({
-        message:"user deleted."
-      })
-    }
-    else{
+        message: "user deleted.",
+      });
+    } else {
       res.status(404).json({
-        message:"user not found to delete"
-      })
+        message: "user not found to delete",
+      });
     }
-
-  }catch(err){
-
+  } catch (err) {
     res.status(500).json({
-      err:err
-    })
+      err: err,
+    });
   }
+};
 
-
-}
+const updateUser = async (req, res) => {
+  //db.users.updateOne({$set:{name:"",age:""},{id:"aksjasnjsa"})
+  //id -->req.params
+  //new data -->req.body
+  try {
+    const id = req.params.id;
+    const updatedUser = await userSchema.findByIdAndUpdate(id, req.body,{new:true});
+    if (updatedUser) {
+      res.status(200).json({
+        message: "user updated",
+        data: updatedUser,
+      });
+    } else {
+      res.status(404).json({
+        message: "user not found to update",
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      err: err,
+    });
+  }
+};
 
 module.exports = {
   getUsers,
   getUserById,
   searchUserByName,
   addUser,
-  deleteUser
+  deleteUser,
+  updateUser
 };
