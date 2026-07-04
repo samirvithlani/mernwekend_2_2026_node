@@ -23,7 +23,13 @@ const userSchema = new Schema({
     },
     hobbies:[{
         type:String,
-    }]
+    }],
+    //roleId --> columnName -->it can be any eg role, userRole, rolId, roleData
+    roleId:{
+        type:Schema.Types.ObjectId,
+        ref:"roles"
+        //check rolemodel export name
+    }
 })
 
 //users ->collection[table]-->db.js -->

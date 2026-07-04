@@ -253,3 +253,32 @@ you have to tell express server that type of data in body will be json
 
 
 HTTP STATUS:
+
+
+
+user <--> ROLE ---> realtion:
+
+role table:
+user
+
+impl flow
+roleModel:
+roleController:
+   get api
+   post api:
+
+roleroutes:
+call both api
+require in app.js:
+  test in post man
+  addd 3 roles and get if it is there or not
+
+
+add roleId in userModel:
+
+open postman add ew user with role
+
+goto user controller and popultate in getUser api..
+call getusers api in postman check
+
+

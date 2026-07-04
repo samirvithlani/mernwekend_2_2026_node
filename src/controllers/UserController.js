@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 //userScham == db.users
 const getUsers = async (req, res) => {
   //db-->
-  const users = await userSchema.find(); //[]
+  //join..
+  //const users = await userSchema.find(); //[]
+  //roleId --> check userModel and apply columnName not ref name
+  //const users = await userSchema.find().populate("roleId"); //[] 
+  const users = await userSchema.find().populate("roleId","name"); //[] 
   res.json({
     message: "user api called..",
     data: users,
@@ -113,6 +117,19 @@ const updateUser = async (req, res) => {
     });
   }
 };
+
+//params.id
+//req.body -->hobby
+//$push
+///check -->hobby already exist.
+
+
+//params.id
+//req.body -->hobby
+//$pull
+///check -->hobby already exist.
+
+
 
 module.exports = {
   getUsers,

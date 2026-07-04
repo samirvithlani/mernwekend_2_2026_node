@@ -12,6 +12,11 @@ const userRoutes = require("./src/routes/UserRoutes")
 app.use(userRoutes)
 
 
+//localhost:3000/role
+const roleRoutes = require("./src/routes/RoleRoutes")
+app.use("/role",roleRoutes)
+
+
 //create web server..
 const PORT = 3000;
 app.listen(PORT, () => {
