@@ -1,6 +1,7 @@
 //functions
 const userSchema = require("../models/UserModel");
 const mongoose = require("mongoose");
+const mailsend = require("../utils/MailUtil")
 //userScham == db.users
 const getUsers = async (req, res) => {
   //db-->
@@ -55,6 +56,7 @@ const addUser = async (req, res) => {
   //{}req.body { name: 'amit', age: 23, email: 'amit@gmail.com', password: 'amit123' }
   try {
     const savedUser = await userSchema.create(req.body);
+    await mailsend(req.body.email,"WELCOME MAIL",`hi ${req.body.name} welcome to portal`)
 
     console.log("req.body", req.body);
     res.status(201).json({
