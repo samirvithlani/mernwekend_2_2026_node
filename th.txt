@@ -290,6 +290,11 @@ project deploy --> server environment file[variable] --> senstive store:
 npm i nodemailer
 utils -->mailUtil ->
 userController -->require ---> addUser[POST] --> user add -->mail function call
-
 npm i dotenv
+
+
+filter :
+middleware:
+
+business logic : --> layer [middleware] -->logic apply
 
