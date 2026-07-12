@@ -298,3 +298,11 @@ middleware:
 
 business logic : --> layer [middleware] -->logic apply
 
+
+name : min 2 char name
+email : valid @ .
+password min 8 char
+
+no more if else..... 3rd party lib:
+zod , yup
+
