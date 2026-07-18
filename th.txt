@@ -306,3 +306,23 @@ password min 8 char
 no more if else..... 3rd party lib:
 zod , yup
 
+file upload
+profile pic:
+kyc: document
+marksheet:
+salary:
+
+file upload -->copy -->paste
+storeage:
+server: -->localshost: drive file 
+
+  file drive folder -->db path store:
+database: ---> costly
+live buckets[cloud] ---> chepe , fast realible
+    cloud file store:
+    db --->path
+
+multer:
+
+
+

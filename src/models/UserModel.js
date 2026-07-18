@@ -30,6 +30,9 @@ const userSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:"roles"
         //check rolemodel export name
+    },
+    profilePic:{
+        type:String
     }
 })
 

@@ -55,7 +55,11 @@ const addUser = async (req, res) => {
   //insertOne -->replacement -->create()
   //{}req.body { name: 'amit', age: 23, email: 'amit@gmail.com', password: 'amit123' }
   try {
-    const savedUser = await userSchema.create(req.body);
+    // const profilepic = req.file;
+    // console.log("file object...",profilepic)
+    //req.file v-->if you have applied multer middleware in routes...
+    //const savedUser = await userSchema.create(req.body);
+    const savedUser = await userSchema.create({...req.body,profilePic:req.file.path});
     await mailsend(req.body.email,"WELCOME MAIL",`hi ${req.body.name} welcome to portal`)
 
     console.log("req.body", req.body);
